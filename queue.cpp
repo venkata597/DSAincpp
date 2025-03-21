@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 template<typename t,int size> class queue{
 private:    
