@@ -57,4 +57,9 @@ public:
             return false;
         }
     }
+    void display(){
+        for(int i = front; i <= rear; i++){
+            std::cout << queuearr[i] << "\t";
+        }
+    }
 };
