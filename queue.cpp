@@ -25,6 +25,10 @@ public:
             t dqd = queuearr[front++];
             return dqd;
         }
+        if(front>rear){
+            front = -1;
+            rear = -1;
+        }
     }
 
     void peek(){
@@ -37,7 +41,7 @@ public:
     }
 
     bool isEmpty(){
-        if(front == -1){
+        if(front > rear){
             return true;
         }
         else{
@@ -46,7 +50,7 @@ public:
     }
 
     bool isFull(){
-        if(rear == size){
+        if(rear == (size-1)){
             return true;
         }
         else{
