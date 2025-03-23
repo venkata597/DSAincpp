@@ -45,5 +45,5 @@ public:
 };
 
 int main(){
-    stack<int> stack;   
+    stack<int> stack;
 }
