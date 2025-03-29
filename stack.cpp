@@ -1,49 +1,51 @@
 #include <iostream>
-#include <vector>
-#include <string>
 
-template<typename t> class stack{
+
+template<typename t,int size> class stack{
 private:
-    std::vector<t> stk;
-    int stack_pointer = -1;
-public: 
-    void push(t n){
-        stk.push_back(n);
-        stack_pointer++;
+    t stack[size];
+    int top=-1;
+public:
+    void push(t ele){
+        if(isFull()){
+            std::cout << "Stack overflow" << std::endl;
+        }
+        else{
+            stack[++top] = ele;
+        }
     }
+
     t pop(){
-        if(stack_pointer==-1){
-            std::cout << "Stack is Empty" << std::endl;
+        if(isEmpty()){
+            std::cout << "Stack Underflow" << std::endl;
         }
         else{
-            t popped = stk.pop_back();
-            stack_pointer--;
-            return popped;
+            t ppd = stack[top];
+            top--;
+            return ppd;
         }
     }
-    void peek() const {
-        if(stack_pointer==-1){
-            std::cout << "Stack is empty" << std::endl;
+
+    bool isEmpty(){
+        if(top==-1){
+            return true;
         }
         else{
-            std::cout << "The top element of the stack is: " << stk[stack_pointer] << std::endl;
+            return false;
         }
     }
-    void display() const {
-        if(stack_pointer==-1){
-            std::cout << "Stack is empty" << std::endl;
+
+    bool isFull(){
+        if(top>=size-1){
+            return true;
         }
         else{
-            std::cout << "-------" << std::endl;
-           for(int i = stack_pointer;i>=0;i--){
-                std::cout << "|  "<< stk[i] <<"  |" << std::endl;
-                std::cout << "-------" << std::endl;
-           }
-           
+            return false;
         }
     }
 };
 
+
 int main(){
-    stack<int> stack;
+    stack<int,10> stk;
 }
